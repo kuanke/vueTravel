@@ -20,7 +20,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-	@import '~@/assets/styles/variables.scss';
+	@import '~styles/variables.scss';
 	.header {
 		display: flex;
 		justify-content: space-between;

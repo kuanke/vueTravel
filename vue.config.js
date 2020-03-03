@@ -1,10 +1,28 @@
+
+const path = require('path')
+
+function resolve(dir) {
+  return path.join(__dirname, dir)
+}
+
 module.exports = {
-	lintOnSave: false,
+	lintOnSave: false, // 关闭eslint
 	configureWebpack: {
-		// resolve: {
-		// 	alias: {
-		// 		'styles': '/Users/zhengll/Documents/workspace/vue/vueTravel/src/assets/styles'
-		// 	}
-		// }
+		resolve: {
+			alias: {
+				'styles': resolve('src/assets/styles')
+			}
+		}
+		
+	},
+	devServer: {
+		proxy: {
+			"/api": {
+				target: 'http://localhost:8080',
+		        pathRewrite: {
+		          '^/api': '/mock'
+		        }
+			}
+		}
 	}
 }

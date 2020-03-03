@@ -7,7 +7,7 @@
 						 v-for='item of page'
 						 :key='item.id'>
 						<div class="icon-img">
-							<img class='icon-img-content' :src="item.imgSrc">
+							<img class='icon-img-content' :src="item.imgUrl">
 						</div>
 						<div class="icon-name">
 							{{item.desc}}
@@ -23,22 +23,13 @@
 export default {
 	name: 'HomeIcons',
 	props: {
-		// list: 
+		list: Array
 	},
 	data() {
       return {
         swiperOption: {
           autoplay: false
-        },
-        list: [{
-        	id: '0001',
-        	imgSrc: 'http://img1.qunarzz.com/piao/fusion/1803/95/f3dd6c383aeb3b02.png',
-        	desc: 'aaaa'	
-        },{
-        	id: '0002',
-        	imgSrc: 'http://img1.qunarzz.com/piao/fusion/1803/95/f3dd6c383aeb3b02.png',
-        	desc: 'aaaa'	
-        }]
+        }
       }
   	},
   	computed: {
