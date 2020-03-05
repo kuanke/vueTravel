@@ -28,8 +28,8 @@ export default {
 </script>
 
 <style lang='scss' scoped>
-	.wrapper .swiper-pagination-bullet-active{  //todo 不生效
-    	background: #fff
+	.wrapper .swiper-pagination-bullet-active {  //todo 不生效
+    	background: #fff;
 	}
 	.wrapper {
 		width: 100%;

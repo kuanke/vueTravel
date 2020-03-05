@@ -61,6 +61,7 @@ export default {
   },
   methods: {
     handleCityClick (city) {
+      console.log(city)
       this.changeCity(city)
       this.$router.push('/')
     },
@@ -75,7 +76,10 @@ export default {
     }
   },
   mounted () {
-    this.scroll = new Bscroll(this.$refs.wrapper)
+    this.scroll = new Bscroll(this.$refs.wrapper, {click: true})
+  },
+  activated() {
+    this.scroll.refresh();
   }
 }
 </script>

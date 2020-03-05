@@ -62,6 +62,7 @@ export default {
 			display: flex;
 			flex-wrap: wrap;
 			justify-content: flex-start;
+			padding: 0.1rem;
 			.icon {
 				display: inline-block;
 				width: 25%;

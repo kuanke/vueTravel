@@ -3,6 +3,8 @@
   	<home-header></home-header>
   	<home-swiper :list="swiperList"></home-swiper>
   	<home-icons :list="iconList"></home-icons>
+    <recommend-list :list='recommendList'></recommend-list>
+    <home-weekend :list="weekendList"></home-weekend>
   </div>
 </template>
 
@@ -12,13 +14,17 @@ import axios from 'axios'
 import HomeHeader from '@/pages/home/components/Header.vue'
 import HomeSwiper from '@/pages/home/components/Swiper.vue'
 import HomeIcons from '@/pages/home/components/Icons.vue'
+import RecommendList from '@/pages/home/components/Recommend.vue'
+import HomeWeekend from '@/pages/home/components/Weekend.vue'
 
 export default {
   name: 'Home',
   components: {
     HomeHeader,
     HomeSwiper,
-	  HomeIcons
+	  HomeIcons,
+    RecommendList,
+    HomeWeekend
   },
   data () {
     return {
@@ -35,7 +41,6 @@ export default {
         .then(this.getHomeInfoSucc)
     },
     getHomeInfoSucc (res) {
-      console.log(res)
       res = res.data
       if (res.ret && res.data) {
         const data = res.data
@@ -47,8 +52,13 @@ export default {
     }
   },
   mounted() {
-    console.log('=====');
     this.getHomeInfo();
+  },
+  activated () {  //和<keep-alive>配合使用，防止缓存
+    if (this.lastCity !== this.city) {
+      this.lastCity = this.city
+      this.getHomeInfo()
+    }
   }
 }
 </script>
